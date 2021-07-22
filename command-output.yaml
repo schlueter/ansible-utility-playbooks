@@ -1,0 +1,8 @@
+- hosts: all
+  gather_facts: no
+  vars:
+    command: df -h /opt
+  tasks:
+    - command: "{{ command }}"
+      register: exec
+    - debug: var=exec.stdout
